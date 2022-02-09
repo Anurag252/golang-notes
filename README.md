@@ -177,6 +177,56 @@ func main() {
 		// its length      : 2
 		// its element type: byte
 		ages [2]byte
-35 . go compiler will catch error of index out of bounds in case a constant is used
-36.. 
+35 . go compiler will catch error of index out of bounds in case a constant is used , but not if a variable is used
+36. strconv.ParseInt(os.Args[1], 10, 8)
+37. books := [4]string{
+			"Kafka's Revenge",
+			"Stay Golden",
+			"Everythingship",
+			"Kafka's Revenge 2nd Edition",
+		} 
+38. books := [...]string{
+			"Kafka's Revenge",
+			"Stay Golden",
+			"Everythingship",
+			"Kafka's Revenge 2nd Edition",
+		}
+39. const (
+	winter = 1
+	summer = 3
+	yearly = winter + summer
+)
+40. fmt.Printf(books) // prints array
+41. copy array from index 1 till end --> args := os.Args[1:]
+42. blue == red // length , order, type , all elements
+43. blue := [3]int{6, 9, 3}
+	red := blue
+
+	blue[0] = 10
+	
+44. for i, b := range prev {
+		books[i] += b + " 2nd Ed."
+	}
+45. students := [...][3]float64{
+		{5, 6, 1},
+		{9, 8, 4},
+	}
+
+	var sum float64
+
+	for _, grades := range students {
+		for _, grade := range grades {
+			sum += grade
+		}
+	}
+multi dim array
+
+46. another way for multi dim array :- 
+		
+		students := [2][3]float64{
+	 	[3]float64{5, 6, 1},
+	 	[3]float64{9, 8, 4},
+	 }
+	
+ 47. 
    
