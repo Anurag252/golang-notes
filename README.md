@@ -228,5 +228,11 @@ multi dim array
 	 	[3]float64{9, 8, 4},
 	 }
 	
- 47. 
+ 47. rates := [3]float64{
+		0: 0.5, // index: 0
+		1: 2.5, // index: 1
+		2: 1.5, // index: 2
+	}
+	index array to element  --> valid declartion of array . Also elements caan be in any order , also a mixture of keyed and unkeyed elements also allowed
+ 48. 
    
