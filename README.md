@@ -234,5 +234,82 @@ multi dim array
 		2: 1.5, // index: 2
 	}
 	index array to element  --> valid declartion of array . Also elements caan be in any order , also a mixture of keyed and unkeyed elements also allowed
- 48. 
+	
+ 48. slice declaration :- var nums []int , still nil unlike array which has value here
+ 49. difference between slice and array :- zero values are 0 and nil , len works for both of them , no pre defined length in case of slice
+ 50. for and if syntax  
+ for i, game := range games {
+		if game != newGames[i] {
+			ok = "not "
+			break
+		}
+		
+		
+51. for found := 0; found < max; {
+52. array to slice nums[:] (from nums array to slices )
+53. use append to add to slice , returns updated slice
+54. append two slices append(nums, tens...)
+55. print slices [start : length] 
+56. 
+57. []int(nil) convert nil to nil slice
+58.  go is pass by copy
+ only the slice header is copied: 3 integer fields (24 bytes)
+ think of passing an array with millions of elements instead.
+59. unsafe.Sizeof gives size of array or slices . slice size is fixed , only header , array size includes all elements
+60. nil slice - []num , empty slice - []nums{}
+61. nums = append(nums, nums[2:]...) nums + nums from 2nd index 
+62. sliceable[0:3:3] --> a[low : high : max]
+constructs a slice of the same type, and with the same length and elements as the simple slice expression a[low : high].
+Additionally, it controls the resulting slice's capacity by setting it to max - low.
+
+63. make([]int, 3) // 
+64.upTasks = upTasks[:cap(upTasks)]
+65. copy(dst, source) --> int numbers min(len(src), len(dst)) 
+66. // #5: returns the # of copied elements
+	// n := copy(data, []float64{10, 5, 15, 0, 20})
+	// fmt.Printf("%d probabilities copied.\n", n)
+
+	// #6: (sometimes) use append instead of copy
+	// data = append(data[:0], []float64{10, 5, 15, 0, 20}...)
+	
+	saved := append([]float64(nil), data...)
+	
+67. append to multi dimesnion slice spendings := make([][]int, 0, 5)
+
+	spendings = append(spendings, []int{200, 100})
+68. stringd.split , fields 
+69. maps  var dict map[string]string
+70.  Cannot use non-comparable types as map key types , cant compare a slice except to a nil value 
+71. var broken map[[]int]int // cant use this as key
+72. initiate a dictionary dict := map[string]string{
+		"good":    "kötü",
+		"great":   "harika",
+		"perfect": "mükemmel",
+		// #4
+		// 42: "forty two",
+		// "forty two": 42,
+	}
+73. comma ok ;- if value, ok := dict[query]; ok {
+		fmt.Printf("%q means %#v\n", query, value)
+		return
+	}
+74. printing map gives ordered output 
+75. we can compare maps as so :- map1 == map2
+76. delete(dict, "notexisting") delete a key (exisitng / non exisiting)
+77. in := bufio.NewScanner(os.Stdin) reads from  std input , in.Scan() , in.Text()
+78. initialize a struct -- person1 := Person{Name: "Pablo", Lastname: "Picasso", Age: 91}
+79. var (
+		name, lastname string
+		age            int
+
+		name2, lastname2 string
+		age2             int
+	)
+
+	name, lastname, age = "Pablo", "Picasso", 95
+	name2, lastname2, age = "Sigmund", "Freud", 8
+80. 
+
+
+	
    
