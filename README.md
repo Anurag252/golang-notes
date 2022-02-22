@@ -308,7 +308,32 @@ Additionally, it controls the resulting slice's capacity by setting it to max - 
 
 	name, lastname, age = "Pablo", "Picasso", 95
 	name2, lastname2, age = "Sigmund", "Freud", 8
-80. 
+80. structs can be copied and compared as well . song1 = song2 , if song1 == song2 { --> compares all properties 
+81.  you can't compare struct values that contains incomparable fields, you need to compare them manually
+82.  song := rock.songs[0]
+	song.title = "live forever"
+here rock struct is not changed
+83. Embedding :- embedding a struct inside another 
+84. marshalling :- 
+type user struct { // #1
+	Name        string      `json:"username"`
+	Password    string      `json:"-"` // not serialized
+	Permissions permissions `json:"perms,omitempty"` // #6
+
+	// name        string // #1
+	// password    string // #1
+	// permissions // #3
+}
+85. string int structs arrays etc are copy by value . maps slices functions are copy by reference
+86. function always makes a copy of passed arguements
+87. P := &counter
+	V := **P 
+88. from array to slices , use ...
+89. func avg(nums ...int) int {
+	return sum(nums) / len(nums)
+}
+90. strings.Map(unpunct , "" ) --> map takes a function and transforms the string
+91. 
 
 
 	
