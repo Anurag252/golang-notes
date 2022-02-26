@@ -333,7 +333,110 @@ type user struct { // #1
 	return sum(nums) / len(nums)
 }
 90. strings.Map(unpunct , "" ) --> map takes a function and transforms the string
-91. 
+91. make() to create a data structure
+92. defer function --> called at the end 
+93. func main() {
+	fmt.Printf("HasPrefix: %T\n", strings.HasPrefix)
+	fmt.Printf("HasSuffix: %T\n", strings.HasSuffix)
+	fmt.Println()
+
+	var fn func(string, string) bool
+
+	fn = strings.HasPrefix
+	fn = strings.HasSuffix
+
+	ok := fn("gopher", "go")
+
+	fmt.Printf("ok       : %t\n", ok)
+}
+94. func spread(samples int, P int) (estimated float64) {
+	counts := make(chan float64)
+
+	for i := 0; i < P; i++ {
+		go func() { counts <- estimate(samples / P) }()
+	}
+
+	for i := 0; i < P; i++ {
+		estimated += <-counts
+	}
+	return estimated / float64(P)
+}
+95. package main
+
+// file scope
+import "fmt"
+
+// package scope
+const ok = true
+
+// package scope
+func main() { // block scope starts
+
+96. we can have same variable in nested scope 
+97. // Go supports Unicode characters in string literals
+	// And also in source-code: KÖSTEBEK!
+98. mobydick := book{
+		title: "moby dick",
+		price: 10,
+	} initiaize interface
+99.switch v := v.(type) {
+	case int:
+		// book{title: "moby dick", price: 10, published: 118281600},
+		t = v
+	case string:
+		// book{title: "odyssey", price: 15, published: "733622400"},
+		t, _ = strconv.Atoi(v)
+	default:
+		// book{title: "hobbit", price: 25},
+		return "unknown"
+	}
+100. type book struct {
+	// embed the product type into the book type.
+	// all the fields and methods of the product will be
+	// available in this book type.
+	product
+	published interface{}
+}  --> a function inside product will execute on book type as if it was inside book itself
+
+101. Stringers
+One of the most ubiquitous interfaces is Stringer defined by the fmt package.
+
+type Stringer interface {
+    String() string
+}
+A Stringer is a type that can describe itself as a string. The fmt package (and many others) look for this interface to print values.
+
+111.sort.Sort() can sort any type that implements the sort.Interface
+
+- sort.Interface has three methods: Len(), Less(), Swap()
+  - Len() returns the length of a collection.
+  - Less(i, j) should return true when an element comes before another one.
+  - Swap(i, j)s the elements when Less() returns true.
+
+- sort.Reverse() can reverse sort a type that satisfies the sort.Interface.
+
+112. You can customize the sorting:
+  - Either by implementing the sort.Interface methods,
+  - or by anonymously embedding a type that already satisfies the sort.Interface
+  - and adding a Less() method.
+
+113.  json.Marshal() and json.MarshalIndent() can only encode primitive types.
+  - Custom types can tell the encoder how to encode.
+  - To do that satisfy the json.Marshaler interface.
+
+- json.Unmarshal() can only decode primitive types.
+  - Custom types can tell the decoder how to decode.
+  - To do that satisfy the json.Unmarshaler interface.
+
+- strconv.AppendInt() can append an int value to a []byte.
+  - There are several other functions in the strconv package for other primitive types as well.
+  - Do not make unnecessary string <-> []byte conversions.
+
+- log.Fatal() can print the given error message and terminate the program.
+  - Use it only from the main(). Do not use it in other functions.
+  - main() is should be the main driver of a program.
+
+114. 
 
 
 	
